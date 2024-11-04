@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Transform, Transition & Animation</title>
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .demo-box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            margin: 20px;
+            display: inline-block;
+        }
+
+        /* Transform Examples */
+        .scale-demo:hover {
+            transform: scale(1.5);
+        }
+
+        .rotate-demo:hover {
+            transform: rotate(45deg);
+        }
+
+        .translate-demo:hover {
+            transform: translate(50px, 20px);
+        }
+
+        .skew-demo:hover {
+            transform: skew(20deg);
+        }
+
+        /* Transition Examples */
+        .transition-demo {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .transition-property {
+            transition-property: background-color, transform;
+            transition-duration: 0.5s;
+            transition-timing-function: ease-in-out;
+        }
+
+        .transition-property:hover {
+            background-color: #e74c3c;
+            transform: scale(1.2);
+        }
+
+        /* Animation Examples */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        @keyframes rotate360 {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animation-bounce {
+            animation: bounce 1s infinite;
+        }
+
+        .animation-rotate {
+            animation: rotate360 2s linear infinite;
+        }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            display: block;
+            margin: 10px 0;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        .note {
+            background-color: #fff3e0;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Transform, Transition และ Animation</h1>
+
+    <div class="section">
+        <h2>1. Transform</h2>
+        <p>Transform ใช้สำหรับเปลี่ยนแปลงรูปร่างหรือตำแหน่งของ element โดยไม่กระทบกับ element อื่น</p>
+        
+        <div class="demo-box scale-demo transition-demo"></div>
+        <code>transform: scale(1.5);</code>
+        <p>Scale: ย่อหรือขยายขนาด (hover เพื่อดูผล)</p>
+
+        <div class="demo-box rotate-demo transition-demo"></div>
+        <code>transform: rotate(45deg);</code>
+        <p>Rotate: หมุน element</p>
+
+        <div class="demo-box translate-demo transition-demo"></div>
+        <code>transform: translate(50px, 20px);</code>
+        <p>Translate: เคลื่อนย้ายตำแหน่ง</p>
+
+        <div class="demo-box skew-demo transition-demo"></div>
+        <code>transform: skew(20deg);</code>
+        <p>Skew: เอียง element</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Transition</h2>
+        <p>Transition ใช้สำหรับกำหนดการเปลี่ยนแปลงให้เกิดขึ้นอย่างนุ่มนวล มี properties หลักดังนี้:</p>
+
+        <div class="demo-box transition-property"></div>
+        <code>
+            transition-property: background-color, transform;<br>
+            transition-duration: 0.5s;<br>
+            transition-timing-function: ease-in-out;
+        </code>
+        <p>ตัวอย่างการใช้ transition แบบละเอียด (hover เพื่อดูผล)</p>
+
+        <div class="note">
+            <strong>Properties ของ Transition:</strong><br>
+            - transition-property: กำหนดคุณสมบัติที่จะให้มีการ transition<br>
+            - transition-duration: ระยะเวลาในการ transition<br>
+            - transition-timing-function: รูปแบบการเคลื่อนไหว (ease, linear, ease-in, ease-out)<br>
+            - transition-delay: ระยะเวลารอก่อนเริ่ม transition
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Animation</h2>
+        <p>Animation ใช้สำหรับสร้างการเคลื่อนไหวที่ซับซ้อนและต่อเนื่อง โดยใช้ @keyframes</p>
+
+        <div class="demo-box animation-bounce"></div>
+        <code>
+            @keyframes bounce {<br>
+                0%, 100% { transform: translateY(0); }<br>
+                50% { transform: translateY(-30px); }<br>
+            }<br>
+            .animation-bounce {<br>
+                animation: bounce 1s infinite;<br>
+            }
+        </code>
+        <p>ตัวอย่างการเด้งขึ้นลง</p>
+
+        <div class="demo-box animation-rotate"></div>
+        <code>
+            @keyframes rotate360 {<br>
+                from { transform: rotate(0deg); }<br>
+                to { transform: rotate(360deg); }<br>
+            }
+        </code>
+        <p>ตัวอย่างการหมุน</p>
+
+        <div class="note">
+            <strong>Properties ของ Animation:</strong><br>
+            - animation-name: ชื่อของ @keyframes<br>
+            - animation-duration: ระยะเวลาในการเล่น animation<br>
+            - animation-timing-function: รูปแบบการเคลื่อนไหว<br>
+            - animation-delay: ระยะเวลารอก่อนเริ่ม<br>
+            - animation-iteration-count: จำนวนรอบที่เล่น (infinite คือเล่นไม่จบ)<br>
+            - animation-direction: ทิศทางการเล่น (normal, reverse, alternate)<br>
+            - animation-fill-mode: สถานะเริ่มต้นและจบของ animation
+        </div>
+    </div>
+</body>
+</html>
