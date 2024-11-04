@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            padding: 1rem;
+            background-color: #333;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+        }
+
+        .nav-list a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .grid-item {
+            background: #f0f0f0;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Flex Layout */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .flex-item {
+            flex: 1;
+            min-width: 200px;
+            background: #e0e0e0;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Responsive Images */
+        .responsive-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Background color indicators for different viewports */
+        body {
+            background-color: #ffebee; /* Red-ish for mobile */
+        }
+
+        /* Breakpoints */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .show-menu {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            body {
+                background-color: #e8f5e9; /* Green-ish for tablet */
+            }
+        }
+
+        @media (min-width: 1025px) {
+            body {
+                background-color: #e3f2fd; /* Blue-ish for desktop */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-list">
+            <li><a href="#">หน้าแรก</a></li>
+            <li><a href="#">เกี่ยวกับเรา</a></li>
+            <li><a href="#">บริการ</a></li>
+            <li><a href="#">ติดต่อ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Grid Layout -->
+    <div class="grid-container">
+        <div class="grid-item">Grid 1</div>
+        <div class="grid-item">Grid 2</div>
+        <div class="grid-item">Grid 3</div>
+        <div class="grid-item">Grid 4</div>
+    </div>
+
+    <!-- Flex Layout -->
+    <div class="flex-container">
+        <div class="flex-item">Flex 1</div>
+        <div class="flex-item">Flex 2</div>
+        <div class="flex-item">Flex 3</div>
+    </div>
+
+    <!-- Responsive Images -->
+    <picture>
+        <source srcset="1346622.jpeg" media="(min-width: 1025px)">
+        <source srcset="1346622.jpeg" media="(min-width: 769px)">
+        <img class="responsive-img" src="1346622.jpeg" alt="Responsive image">
+    </picture>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-list').classList.toggle('show-menu');
+        }
+    </script>
+</body>
+</html>
