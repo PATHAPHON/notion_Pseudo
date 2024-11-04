@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {
+      font-family: 'Arial', sans-serif;
+      box-sizing: border-box;
+    }
+    
+    body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .section {
+      margin: 30px 0;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+    }
+
+    /* ::first-letter Demo */
+    .first-letter {
+      font-size: 18px;
+    }
+
+    .first-letter::first-letter {
+      font-size: 48px;
+      font-weight: bold;
+      color: #4CAF50;
+      float: left;
+      padding-right: 8px;
+      line-height: 1;
+    }
+
+    /* ::first-line Demo */
+    .first-line {
+      font-size: 16px;
+    }
+
+    .first-line::first-line {
+      color: #2196F3;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    /* ::before Demo */
+    .icon-link {
+      text-decoration: none;
+      color: #333;
+      margin-right: 20px;
+    }
+
+    .icon-link::before {
+      content: "🔗";
+      margin-right: 5px;
+    }
+
+    .warning::before {
+      content: "⚠️ ";
+    }
+
+    /* ::after Demo */
+    .external-link {
+      text-decoration: none;
+      color: #2196F3;
+    }
+
+    .external-link::after {
+      content: " ↗️";
+    }
+
+    .new-label::after {
+      content: "NEW";
+      background-color: #f44336;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 8px;
+    }
+
+    /* ::selection Demo */
+    .custom-selection::selection {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    /* ::placeholder Demo */
+    .custom-placeholder::placeholder {
+      color: #9c27b0;
+      font-style: italic;
+    }
+
+    /* Decoration Demo */
+    .decorated-box {
+      position: relative;
+      padding: 20px;
+      border: 2px solid #4CAF50;
+      margin-top: 20px;
+    }
+
+    .decorated-box::before,
+    .decorated-box::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #4CAF50;
+    }
+
+    .decorated-box::before {
+      top: -10px;
+      left: -10px;
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    .decorated-box::after {
+      bottom: -10px;
+      right: -10px;
+      border-left: 0;
+      border-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Pseudo-elements Demo</h1>
+
+  <div class="section">
+    <h3>1. ::first-letter</h3>
+    <p class="first-letter">การทำ Drop Cap ด้วย first-letter นี่เป็นตัวอย่างของการใช้ pseudo-element ::first-letter เพื่อทำตัวอักษรตัวแรกให้มีขนาดใหญ่และสวยงาม</p>
+  </div>
+
+  <div class="section">
+    <h3>2. ::first-line</h3>
+    <p class="first-line">บรรทัดแรกนี้จะมีสีและขนาดที่แตกต่างจากบรรทัดอื่นๆ
+    นี่คือบรรทัดที่สอง ซึ่งจะมีรูปแบบปกติ
+    และนี่ก็เป็นบรรทัดที่สาม</p>
+  </div>
+
+  <div class="section">
+    <h3>3. ::before</h3>
+    <p>
+      <a href="#" class="icon-link">ลิงก์ที่มีไอคอนนำหน้า</a>
+      <span class="warning">ข้อความเตือน</span>
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>4. ::after</h3>
+    <p>
+      <a href="#" class="external-link">ลิงก์ภายนอก</a><br><br>
+      <span class="new-label">สินค้าใหม่</span>
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>5. ::selection</h3>
+    <p class="custom-selection">ลองเลือกข้อความนี้ดูสิ! สีพื้นหลังและสีตัวอักษรจะเปลี่ยนไป</p>
+  </div>
+
+  <div class="section">
+    <h3>6. ::placeholder</h3>
+    <input type="text" class="custom-placeholder" placeholder="Placeholder ที่มีสีและ style กำหนดเอง">
+  </div>
+
+  <div class="section">
+    <h3>7. Decorative Elements with ::before และ ::after</h3>
+    <div class="decorated-box">
+      กล่องข้อความที่มีการตกแต่งมุมด้วย pseudo-elements
+    </div>
+  </div>
+
+</body>
+</html>
