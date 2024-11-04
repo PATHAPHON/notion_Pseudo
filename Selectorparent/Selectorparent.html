@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selector Combinators</title>
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .example {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: white;
+            border-radius: 4px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        h2 {
+            color: #3498db;
+            margin-top: 30px;
+        }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+        }
+
+        /* Descendant Selector Demo */
+        .descendant-demo div span {
+            color: red;
+        }
+
+        /* Child Selector Demo */
+        .child-demo > span {
+            color: blue;
+        }
+
+        /* Adjacent Sibling Demo */
+        .adjacent-demo h3 + p {
+            color: green;
+        }
+
+        /* General Sibling Demo */
+        .general-demo h3 ~ p {
+            background-color: #fff3e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Selector Combinators (Parent Selectors)</h1>
+
+    <div class="section">
+        <h2>1. Descendant Selector (Space)</h2>
+        <p>ใช้เลือก element ทั้งหมดที่อยู่ภายใต้ element แม่ ไม่ว่าจะอยู่ลึกแค่ไหนก็ตาม</p>
+        <code>parent descendant { ... }</code>
+        <div class="example descendant-demo">
+            <div>
+                <span>ข้อความนี้จะเป็นสีแดง</span>
+                <div>
+                    <span>ข้อความนี้ก็จะเป็นสีแดงเช่นกัน</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Child Selector (>)</h2>
+        <p>ใช้เลือกเฉพาะ element ที่เป็นลูกโดยตรงของ element แม่เท่านั้น</p>
+        <code>parent > child { ... }</code>
+        <div class="example child-demo">
+            <span>ข้อความนี้จะเป็นสีน้ำเงิน (ลูกโดยตรง)</span>
+            <div>
+                <span>ข้อความนี้จะไม่เป็นสีน้ำเงิน (ไม่ใช่ลูกโดยตรง)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Adjacent Sibling Selector (+)</h2>
+        <p>ใช้เลือก element ที่อยู่ถัดจาก element ที่ระบุทันที</p>
+        <code>element + adjacent { ... }</code>
+        <div class="example adjacent-demo">
+            <h3>หัวข้อ</h3>
+            <p>ข้อความนี้จะเป็นสีเขียว (อยู่ถัดจาก h3 ทันที)</p>
+            <p>ข้อความนี้จะไม่เป็นสีเขียว</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. General Sibling Selector (~)</h2>
+        <p>ใช้เลือก element ทั้งหมดที่อยู่ในระดับเดียวกันและอยู่หลัง element ที่ระบุ</p>
+        <code>element ~ siblings { ... }</code>
+        <div class="example general-demo">
+            <h3>หัวข้อ</h3>
+            <p>ข้อความนี้จะมีพื้นหลังสีส้มอ่อน</p>
+            <div>ข้อความในdiv</div>
+            <p>ข้อความนี้ก็จะมีพื้นหลังสีส้มอ่อนเช่นกัน</p>
+        </div>
+    </div>
+</body>
+</html>
